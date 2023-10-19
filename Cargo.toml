@@ -4,5 +4,20 @@ version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "raytracinginrust"
+
+[[bin]]
+name = "raytracinginrust"
+path = "bin/main.rs"
 
 [dependencies]
+indicatif = { version = "0.17.7", features = ["rayon"] }
+lodepng = "3.9.1"
+rand = { version = "0.8.5", features = ["small_rng"] }
+rayon = "1.8.0"
+
+[profile.release]
+lto = true
+opt-level = 3
+codegen-units = 1
